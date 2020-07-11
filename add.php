@@ -1,3 +1,4 @@
+<?php session_start(); ?> <!-- Murilo -->
 <?php require_once('header.php'); ?>
 <body class="add">
 <div class="container inner">
@@ -8,6 +9,7 @@
         <a class="nav-link" href="index.php">Home</a>
         <a class="nav-link" href="add.php">Share Your Tune</a>
         <a class="nav-link" href="view.php">View Playlists</a>
+        <a class="nav-link" href="destroy.php"> Forget Me ! </a>
       </nav>
     </div>
   </header>
@@ -58,7 +60,17 @@
     }
     ?>
     <main>
-    <h1>Share Your Fave Tunes</h1>
+    <!-- MURILO -->
+    <?php
+    if(isset($_SESSION['fname']))
+            {
+              echo "<h1>". "<p class='cover-heading'> Share Your Fave Tunes, ".$_SESSION['fname']."!"."</h1>";
+            }
+            else
+              echo "<h1>". "<p class='cover-heading'> Share Your Fave Tunes"."</h1>";
+    ?>
+    <!-- <h1>Share Your Fave Tunes</h1> -->
+
       <form action="process.php" method="post" enctype="multipart/form-data" class="form">
         <!-- add hidden input with user id if editing -->
         <input type="hidden" name="user_id" value="<?php echo $id;?>">

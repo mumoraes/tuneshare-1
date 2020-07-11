@@ -1,3 +1,4 @@
+<?php session_start(); ?> <!-- Murilo -->
 <?php require_once('header.php'); ?>
 <body class="add">
 <div class="container inner saved">
@@ -8,6 +9,7 @@
         <a class="nav-link" href="index.php">Home</a>
         <a class="nav-link" href="add.php">Share Your Tune</a>
         <a class="nav-link" href="view.php">View Playlists</a>
+        <a class="nav-link" href="destroy.php"> Forget Me ! </a>
       </nav>
     </div>
   </header>
@@ -121,8 +123,20 @@
             // execute the insert
             $statement->execute();
 
+            //Murilo *************************************
+            $first_name = filter_input(INPUT_POST, 'fname');
+
+            $_SESSION['fname'] = $first_name;
+
+            if(isset($_SESSION['fname']))
+            {           
             // show message
-            echo "<p> Song added! Thanks for sharing! </p>";
+                echo "<p> Song added! Thanks for sharing ".$_SESSION['fname']."!"."</p>";
+            }
+            else
+            {
+                echo "<p> Hello - your session was destroyed!";
+            }
 
             // disconnecting
             $statement->closeCursor();

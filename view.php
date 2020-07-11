@@ -1,3 +1,4 @@
+<?php session_start(); ?> <!-- Murilo -->
 <?php require_once('header.php'); ?>
 <body class="view">
 <div class="container inner">
@@ -8,6 +9,7 @@
         <a class="nav-link" href="index.php">Home</a>
         <a class="nav-link" href="add.php">Share Your Tune</a>
         <a class="nav-link" href="view.php">View Playlists</a>
+        <a class="nav-link" href="destroy.php"> Forget Me ! </a>
       </nav>
     </div>
   </header>
@@ -29,6 +31,15 @@
     $records = $statement->fetchAll(); 
 
     // echo out the top of the table 
+
+    // MURILO **********************************
+    if(isset($_SESSION['fname']))
+    {
+        echo "<h1>". "<p class='cover-heading'> Hello, ".$_SESSION['fname']."!"."</h1>";
+    }
+    //else
+
+
 
     echo "<table class='table'>";
 

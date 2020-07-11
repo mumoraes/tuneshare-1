@@ -41,14 +41,18 @@ CREATE TABLE `songs` (
 -- Dumping data for table `songs`
 --
 
-INSERT INTO `songs` (`user_id`, `first_name`, `last_name`, `genre`, `location`, `email`, `age`, `favsong`) VALUES
+/* INSERT INTO `songs` (`user_id`, `first_name`, `last_name`, `genre`, `location`, `email`, `age`, `favsong`) VALUES
 (15, 'tesdfg', 'dghf', 'dgfh', 'dfghg', 'gfs@test.com', 34, 'dfghg'),
 (16, 'gf', 'f', 'f', 'f', 'jess@test.com', 45, 'gedf'),
 (17, 'tedgs', 'dg', 'cxg', 'dgf', 'jess@test.com', 34, 'redsgz');
-
+*/
 --
 -- Indexes for dumped tables
---
+ALTER TABLE `songs`
+ADD COLUMN link VARCHAR(30);
+
+ALTER TABLE `songs`
+ADD COLUMN photo VARCHAR(30);
 
 --
 -- Indexes for table `songs`
